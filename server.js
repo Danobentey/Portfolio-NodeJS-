@@ -14,27 +14,28 @@ const server =  http.createServer((req, res) => {
   let request = req.url;
 
   switch (request) {
-      case '/home':
-        request= '/';
+    case '/':
+      path += 'index.html';
+      break;
 
-      case '/':
-        path += 'index.html';
-        break;
-      
+      case '/home':
+        res.statusCode = 301
+        res.setHeader('Location', '/');
+        res.end();
         
-      case '/about.html':
+      case '/about':
         path += 'about.html';
         break;
       
-      case '/contact.html':
+      case '/contact':
         path += 'contact.html'
         break
 
-        case '/projects.html':
+        case '/projects':
           path += 'projects.html'
           break
 
-          case '/services.html':
+          case '/services':
             path += 'services.html'
             break 
 
